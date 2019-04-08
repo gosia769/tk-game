@@ -1,0 +1,53 @@
+    
+.container {
+    position: relative;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+    text-indent: 2em;
+}
+.topright {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    left: 1420px;
+
+}
+.topcenter {
+    position: absolute;
+    left: 758px;
+    top: 40px;
+    color: cyan;
+    text-align: center;
+    font-size: 18px;
+}
+
+.bottom-center {
+    position: absolute;
+    left: 700px;
+    top: 700px;
+    color: cyan;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    margin-bottom: 10%;
+}
+
+#reload{
+    position: relative;
+   top: 450px;
+}
+
+#levels-img{
+    position: absolute;
+    right: 170px   
+}
+
+.text{
+	color: #000;
+    font: 25px 'BlackJackRegular';
+}
