@@ -9,17 +9,16 @@ if (eq_num === null || eq_num === undefined) {
 
 // eq_num = 1;
 draw_equation(equations[eq_num].first, equations[eq_num].op, equations[eq_num].sec, equations[eq_num].res);
-moves_mode(equations[eq_num].mode, equations[eq_num].sol.length);
+moves_mode(equations[eq_num].mode, equations[eq_num].sol[0].length);
 var hint = document.getElementById("hint");
 createHint();
 
 function storeData() {
-    sessionStorage.setItem("eq_no", 1);
-    sessionStorage.setItem("win_3", 0);
+    sessionStorage.setItem("eq_no", 200);
 }
 
 function createHint() {
-    const eqLen = equations[eq_num].sol.length;
+    const eqLen = equations[eq_num].sol[0].length;
     const eqMode = equations[eq_num].mode;
     if (eqMode == 'move' && eqLen / 2 === 1) {
         hint.innerHTML = "przesuń " + eqLen / 2 + " zapałkę";
@@ -177,44 +176,64 @@ function moves_mode(mode, num_moves) {
 }
 
 
-function check(array) {
-    var tries = [];
-    flag = true;
-    for (i = 0; i < equations[eq_num].sol.length; i++) {
-        var solution = equations[eq_num].sol[i];
-        //compare sol and array
-        for (j = 0; j < array.length; j++) {
-            if (solution === array[j]) {
+function checkMovesWithSolution(array) {
+
+    for (let i = 0; i < equations[eq_num].sol.length; i++) {
+        var tries = [];
+        for (let j = 0; j < equations[eq_num].sol[i].length; j++) {
+            let solution = equations[eq_num].sol[i][j];
+            //compare sol and array
+            if (array.includes(solution)) {
                 tries.push(true);
             }
         }
-    }
-    if (tries.length !== array.length) {
-        flag = false;
-    }
-    else if (tries.length === array.length)
-        flag = true;
-    var win = sessionStorage.getItem("win_3");
-    if (win < 3) {
-        if (flag === true) {
-            win++;
-            sessionStorage.win_3 = win;
-        }
-        else {
-            sessionStorage.setItem("win_3", 0);
+        if (tries.length === array.length) {
+            return true;
         }
     }
-    return flag;
+    return false;
 }
+
+//
+// function check(array) {
+//     var tries = [];
+//     flag = true;
+//     for (i = 0; i < equations[eq_num].sol.length; i++) {
+//         var solution = equations[eq_num].sol[i];
+//         //compare sol and array
+//         for (j = 0; j < array.length; j++) {
+//             if (solution === array[j]) {
+//                 tries.push(true);
+//             }
+//         }
+//     }
+//     if (tries.length !== array.length) {
+//         flag = false;
+//     }
+//     else if (tries.length === array.length)
+//         flag = true;
+//     var win = sessionStorage.getItem("win_3");
+//     if (win < 3) {
+//         if (flag === true) {
+//             win++;
+//             sessionStorage.win_3 = win;
+//         }
+//         else {
+//             sessionStorage.setItem("win_3", 0);
+//         }
+//     }
+//     return flag;
+// }
 
 //restrict number of moves for the player
 function restrict_moves(id, num_moves, array) {
     var check_flag;
     var exist;
+
     if (num_moves == 1) {
         array.push(id);
         time = totalSeconds;
-        check_flag = check(array);
+        check_flag = checkMovesWithSolution(array);
         pass_or_fail_msg(check_flag, time);
     }
     if (array.length == 0) {
@@ -235,7 +254,7 @@ function restrict_moves(id, num_moves, array) {
                 array.push(id);
                 if (array.length == num_moves) {
                     time = totalSeconds;
-                    check_flag = check(array);
+                    check_flag = checkMovesWithSolution(array);
                     pass_or_fail_msg(check_flag, time);
                 }
             }
