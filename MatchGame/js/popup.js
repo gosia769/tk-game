@@ -74,29 +74,23 @@ function pass_or_fail_msg(eq_result,eq_time) {
             // time is under minute
         }
 
-        // if(inrow_padge==3)
-        // {
-        // header.innerHTML+='<div>inrow padge</div>';
-        // }
         if(eq_no==9)
         {
             //tasks is eq_array from
             flash_eq_arr = sessionStorage.equations.split(",");
-            // if (flash_eq_arr.length==9)
-            // header.innerHTML+='<img src="images/padges/flash.jpg" alt="ttt" class="modal-header">';
         }
 
-        mbody.innerHTML='<h2> Congratulations :)</h2>';
-        footer.innerHTML='<button id="cont" onclick="move_next();" class="retry-button">Next</button>';
+        header.innerHTML='<h1> Gratulacje :)</h1>';
+        mbody.innerHTML='<button id="cont" onclick="move_next();" class="retry-button">Następne</button>';
         modal.style.display = "block";
     } else {
-        mbody.innerHTML='<h2>Spróbuj jeszcze raz</h2>';
-        footer.innerHTML='<button id="ret" onclick="reloading();" class="retry-button">Spróbuj jeszcze raz</button>';
+        header.innerHTML='<h1>Spróbuj jeszcze raz</h1>';
+        mbody.innerHTML='<button id="ret" onclick="reloading();" class="retry-button">Spróbuj jeszcze raz</button>';
         modal.style.display = "block";
     }
 
 }
-//pass_or_fail_msg(true,50);
+
 function move_next(){
     console.log('time of game');
     console.log(totalSeconds);

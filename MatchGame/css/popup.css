@@ -15,30 +15,11 @@
 
 /* Modal Content */
 .modal-content {
-    position: relative;
     background-color: #fefefe;
-    margin: 10%;
-    padding: 0;
+    margin: auto;
+    padding: 20px;
     border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    box-shadow: 10px 10px 5px #888888; 
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    border-radius: 36px;
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    width: 80%;
 }
 
 /* The Close Button */
@@ -56,17 +37,17 @@
     cursor: pointer;
 }
 
-.modal-footer {
-    margin-left: 30%;
-}
-
 .retry-button {
     height: 50px;
-    width: 40%;
-    margin-bottom: 10%;
+    width: 90%;
+    font-size: 45px;
 }
 
-
 .modal-body {
-    margin-left: 20%;
+    text-align: center;
+}
+
+.modal-header {
+    text-align: center;
+    font-size: 47px;
 }

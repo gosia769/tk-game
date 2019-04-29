@@ -8,28 +8,29 @@
     <link rel="stylesheet" type="text/css" href="css/popup.css">
   </head>
   <body>
-    <div class="topleft">
-        <p class="text" id="hint"></p>
-    </div>
-    <div class="topright"></div>
-    <div class="topcenter">
-        <p id="timer" class="text">00:00:00</p>
-    </div>
+      <div class="topcenter">
+          <p id="timer" class="text">00:00:00</p>
+      </div>
+      <div class="top">
+        <div class="topleft" id="hint">
+<!--            <p class="text" id="hint"></p>-->
+        </div>
+        <div class="topright">
+            <button id="ret" onclick="reloading();" class="retry-button">Jeszcze raz</button>
+        </div>
+      </div>
 
     <div id="divequation"></div>
     <div class="bottom-center">
-        <button id="ret" onclick="reloading();" class="retry-button">Retry</button>;
+<!--        <button id="ret" onclick="reloading();" class="retry-button">Retry</button>;-->
     </div>
 
   <!-- Modal -->
     <div id="pass-modal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <!--<h2>padges Header</h2>-->
-            </div>
+            <span class="close">&times;</span>
+            <div class="modal-header"></div>
             <div class="modal-body"></div>
-            <div class="modal-footer"></div>
         </div>
     </div>
 
